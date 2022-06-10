@@ -66,7 +66,11 @@ module.exports = {
         classPropertiesAllowed: false,
       },
     ],
-    "react/function-component-definition": false,
+    "react/function-component-definition": [
+      2,
+      { "namedComponents": "arrow-function" }
+    ],
+    "react/prop-types": 'off'
   },
   settings: {
     'import/resolver': {
