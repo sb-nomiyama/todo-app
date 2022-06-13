@@ -1,10 +1,11 @@
 import React from 'react';
 import TList from '../../containers/templates/TList';
+import '../../cards.scss';
 
 const TBoard = () => (
-  <div>
-    <TList title="やること" categoryId={1} />
-    <TList title="完了" categoryId={2} />
+  <div className="todo-container">
+    <TList title="ToDo!" categoryId={0} />
+    <TList title="Done!" categoryId={1} />
   </div>
 );
 

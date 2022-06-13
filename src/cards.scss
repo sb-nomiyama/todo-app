@@ -1,0 +1,101 @@
+.todo-container{
+  display: flex;
+  justify-content: center;
+
+  .todo-items{
+    .ribbon3 {
+      // display: inline-block;
+      position: relative;
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      padding: 7px 0;
+      font-size: 18px;
+      width: 20vw;
+      margin: 0 auto;
+      background: #acd879;
+      color: #FFF;
+      box-sizing: border-box;
+
+      h3{
+        // text-align: center;
+        margin: 0;
+        padding: 0 30px;
+        border-top: dashed 2px rgba(255, 255, 255, 0.5);
+        border-bottom: dashed 2px rgba(255, 255, 255, 0.5);
+        line-height: 42px;
+
+        &::after, &::before {
+          position: absolute;
+          content: '';
+          width: 0px;
+          height: 0px;
+          z-index: 1;
+        }
+
+        &::before {
+          top: 0;
+          left: 0;
+          border-width: 30px 0px 30px 15px;
+          border-color: transparent transparent transparent #fff;
+          border-style: solid;
+        }
+
+        &::after {
+          top: 0;
+          right: 0;
+          border-width: 30px 15px 30px 0px;
+          border-color: transparent #fff transparent transparent;
+          border-style: solid;
+        }
+      }
+      
+      .done-title{
+        background: salmon;
+      }
+    }
+    
+    .card-container{
+      display: flex;
+      flex-direction: column;
+      
+      .card-item {
+        background-color: '#ccc';
+        padding: 8px;
+        margin: 2vw;
+        width: 40vw;
+        height: auto;
+        position: relative;
+        
+        .card-options{
+          display: flex;
+          justify-content: space-between;
+          .material-icons{
+            color: pink;
+          }
+        }
+
+        .submit-button{
+          margin: 0 0 0 auto;
+          background-color: #2196F3;
+        }
+
+        .content{
+          line-height: 60px;
+        }
+        
+        .card-title-form {
+          width:100%;
+          margin: 10px;
+        }
+        
+        .edit-icon {
+          float: right;
+          color: lightseagreen;
+          background: none;
+          border: none;
+        }
+      }
+    }
+  }
+}
