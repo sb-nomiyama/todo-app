@@ -1,0 +1,40 @@
+.todo-container{
+  display: flex;
+  .card-container{
+    display: flex;
+    flex-direction: column;
+    
+    .card-item {
+      background-color: '#ccc';
+      padding: 8px;
+      margin: 2vw;
+      width: 40vw;
+      height: auto;
+      position: relative;
+
+      .card-options{
+        display: flex;
+        justify-content: space-between;
+        .material-icons{
+          color: pink;
+        }
+      }
+
+      .content{
+        line-height: 60px;
+      }
+
+      .card-title-form {
+        width:100%;
+        margin: 10px;
+      }
+
+      .edit-icon {
+        float: right;
+        color: lightseagreen;
+        background: none;
+        border: none;
+      }
+    }
+  }
+}

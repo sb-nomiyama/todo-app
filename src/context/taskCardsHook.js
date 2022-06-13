@@ -1,18 +1,9 @@
 import React from 'react';
 
-// タスクカード"状態"用カスタムフック
 const useTaskCardsState = () => {
-  const [state, setState] = React.useState({ cards: [] });
-
-  // タスクカード一覧を"状態"として保存
-  const setCardList = (categoryId, cards) => {
-    // タスクカードをカテゴリー毎に保存
-    state.cards[categoryId] = cards;
-    setState({ ...state });
-  };
-  // タスクカードのカテゴリーを変更
+  const [state, setState] = React.useState([]);
+  
   const moveCard = (card, newCategoryId) => {
-    // 変更対象のカードをidを使って探索
     const cardIndex = state.cards[card.categoryId].findIndex(
       ({ id }) => id === card.id,
     );
@@ -27,19 +18,11 @@ const useTaskCardsState = () => {
     // 変更対象のカードを新しいカードで置き換え
     setState({ ...state });
   };
-  // タスクカードを1つ追加
-  const addCard = (categoryId, card) => {
-    // タスクカードのカテゴリー毎に保存
-    console.log(categoryId);
-    state.cards[categoryId].push(card);
-    setState({ ...state });
-  };
 
   return {
     state,
-    setCardList,
+    setState,
     moveCard,
-    addCard,
   };
 };
 
