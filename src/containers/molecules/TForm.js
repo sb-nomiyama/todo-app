@@ -43,7 +43,7 @@ const TForm = ({ categoryId }) => {
           <TextField onInput={handleContentInputChange} id="outlined-basic" label="Content" variant="outlined" className='card-title-form'/>
         </CardContent>
         <CardActions>
-          <Button onClick={handleAddCard} variant="contained">
+          <Button onClick={handleAddCard} variant="contained" className="submit-button">
             カードの追加
           </Button>
         </CardActions>
