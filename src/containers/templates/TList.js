@@ -1,22 +1,21 @@
 import React, { useEffect } from 'react';
 import TCard from '../molecules/TCard';
 import TForm from '../molecules/TForm';
-import { getCards,} from '../../http/fetchWebAPI';
+import { getCards } from '../../http/fetchWebAPI';
 import { useTaskCardsContext } from '../../context/taskCardsHook';
 import '../../cards.scss';
 
 /* eslint-disable */
 const TList = ({ categoryId, title }) => {
   const { state, setState, moveCard } = useTaskCardsContext();
-/* eslint-enable */
+  /* eslint-enable */
 
-  useEffect(
-    () => {
-      (async () => {
-        const cardsData = await getCards();
-        setState(cardsData);
-      })();
-    },[setState]);
+  useEffect(() => {
+    (async () => {
+      const cardsData = await getCards();
+      setState(cardsData);
+    })();
+  }, [setState]);
 
   // リストにカードがドロップされた時のハンドラー
   // const dropHandler = (event) => {
@@ -34,18 +33,28 @@ const TList = ({ categoryId, title }) => {
   //   event.preventDefault();
   // };
 
-
   return (
     // <div onDragOver={preventDefault} onDrop={dropHandler}>
-    <div>
+    <div className="todo-items">
       {/* onDropはこの要素の上でドラッグ＆ドロップが終了した際のイベント
         onDragOverはこの要素の上に他の要素がドラッグされた際のイベント */}
-      <h4>{title}</h4>
+
+      {categoryId === 0 ? (
+        <div className="ribbon3 todo-title">
+          <h3>{title}</h3>
+        </div>
+      ) : (
+        <div className="ribbon3 done-title" style={{background:'salmon'}}>
+          <h3>{title}</h3>
+        </div>
+      )}
+
       {/* 指定されたカテゴリーのカードを表示する */}
       <div className="card-container">
         {state
-          ? state.filter((card)=>card.category===categoryId)
-          .map((card) => <TCard key={card.id} card={card} />)
+          ? state
+              .filter((card) => card.category === categoryId)
+              .map((card) => <TCard key={card.id} card={card} />)
           : '読込中…'}
         {/* 最後にカード追加用の入力欄を用意 */}
         <TForm categoryId={categoryId} />

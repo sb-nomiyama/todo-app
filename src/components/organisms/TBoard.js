@@ -4,8 +4,8 @@ import '../../cards.scss';
 
 const TBoard = () => (
   <div className="todo-container">
-    <TList title="やること" categoryId={0} />
-    <TList title="完了" categoryId={1} />
+    <TList title="ToDo!" categoryId={0} />
+    <TList title="Done!" categoryId={1} />
   </div>
 );
 
