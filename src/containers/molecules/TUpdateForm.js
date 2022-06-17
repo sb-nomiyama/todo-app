@@ -20,9 +20,8 @@ const TUpdateForm = ({ card, setEditable }) => {
   const handleCheckBox = () => {
     // 0 or 1のschemaにすればよかった
     setCategory(Math.abs(category - 1));
-
-    // なんでこれダメなんだろう
-    // setCategory((state)=>Math.abs(state.category-1));
+    
+    // setCategory((state)=>Math.abs(state-1));
     // console.log(category)
   };
 
